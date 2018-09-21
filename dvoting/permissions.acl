@@ -1,4 +1,4 @@
- /*
+/*
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,35 +17,35 @@
  */
 rule EverybodyCanReadEverything {
     description: "Allow all participants read access to all resources"
-    participant: "org.example.basic.Voter"
+    participant: "org.party.SampleParticipant"
     operation: READ
-    resource: "org.example.basic.*"
+    resource: "org.party.*"
     action: ALLOW
 }
 
 rule EverybodyCanSubmitTransactions {
     description: "Allow all participants to submit transactions"
-    participant: "org.example.basic.Voter"
+    participant: "org.party.SampleParticipant"
     operation: CREATE
-    resource: "org.example.basic.Vote"
+    resource: "org.party.SampleTransaction"
     action: ALLOW
 }
 
 rule OwnerHasFullAccessToTheirAssets {
     description: "Allow all participants full access to their assets"
-    participant(p): "org.example.basic.Voter"
+    participant(p): "org.party.SampleParticipant"
     operation: ALL
-    resource(r): "org.example.basic.Result"
+    resource(r): "org.party.SampleAsset"
     condition: (r.owner.getIdentifier() === p.getIdentifier())
     action: ALLOW
 }
 
 rule SystemACL {
-    description: "System ACL to permit all access"
-    participant: "org.hyperledger.composer.system.Participant"
-    operation: ALL
-    resource: "org.hyperledger.composer.system.**"
-    action: ALLOW
+  description:  "System ACL to permit all access"
+  participant: "org.hyperledger.composer.system.Participant"
+  operation: ALL
+  resource: "org.hyperledger.composer.system.**"
+  action: ALLOW
 }
 
 rule NetworkAdminUser {

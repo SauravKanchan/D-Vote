@@ -13,34 +13,30 @@
  */
 
 /**
- * Sample business network definition.
+ * Write your model definitions here
  */
-namespace org.example.basic
 
-asset Result identified by assetId {
-  o String assetId
-  --> Voter owner
-  o Double value
-  o Double bjp
-  o Double cong
-  o Double aap
-  o Double ncp
+namespace org.party
 
-}
-
-participant Voter identified by participantId {
+participant SampleParticipant identified by participantId {
   o String participantId
   o String firstName
   o String lastName
 }
 
-transaction Vote {
-  --> Result asset
-  o Double newValue
+asset SampleAsset identified by assetId {
+  o String assetId
+  --> SampleParticipant owner
+  o String value
+}
+
+transaction SampleTransaction {
+  --> SampleAsset asset
+  o String newValue
 }
 
 event SampleEvent {
-  --> Result asset
-  o Double oldValue
-  o Double newValue
+  --> SampleAsset asset
+  o String oldValue
+  o String newValue
 }
