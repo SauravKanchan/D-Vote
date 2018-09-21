@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>eVoting - Online Voting Platform</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Online Voting Platform">
+    <meta name="keywords" content="Online Voting Platform, eVoting ">
+    <meta name="author" content="index.html">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+    <link rel="apple-touch-icon" sizes="57x57" href="source/assets/img/favicons/apple-touch-icon-57x57.html">
+    <link rel="apple-touch-icon" sizes="114x114" href="source/assets/img/favicons/apple-touch-icon-114x114.html">
+    <link rel="apple-touch-icon" sizes="72x72" href="source/assets/img/favicons/apple-touch-icon-72x72.html">
+    <link rel="apple-touch-icon" sizes="144x144" href="source/assets/img/favicons/apple-touch-icon-144x144.html">
+    <link rel="apple-touch-icon" sizes="60x60" href="source/assets/img/favicons/apple-touch-icon-60x60.html">
+    <link rel="apple-touch-icon" sizes="120x120" href="source/assets/img/favicons/apple-touch-icon-120x120.html">
+    <link rel="apple-touch-icon" sizes="76x76" href="source/assets/img/favicons/apple-touch-icon-76x76.html">
+    <link rel="apple-touch-icon" sizes="152x152" href="source/assets/img/favicons/apple-touch-icon-152x152.html">
+    <link rel="apple-touch-icon" sizes="180x180" href="source/assets/img/favicons/apple-touch-icon-180x180.html">
+    <link rel="icon" type="image/png" href="source/assets/img/favicons/favicon-96x96.html" sizes="96x96">
+    <link rel="icon" type="image/png" href="source/assets/img/favicons/favicon-16x16.html" sizes="16x16">
+    <link rel="icon" type="image/png" href="source/assets/img/favicons/favicon-32x32.html" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-TileImage" content="source/assets/img/favicons/mstile-144x144.html">
+    <link type="text/css" href="source/assets/css/style.css" rel="stylesheet" />
+    <script src="source/assets/js/modernizr-custom.html"></script>
+  </head>
+
+  <body>
+    <header class="tr-header">
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button> -->
+            <a class="navbar-brand" href="index.html">D-Vote</a>
+          </div><!-- /.navbar-header -->
+          <div class="navbar-left">
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+              <ul class="nav navbar-nav">
+              </ul>
+            </div>
+          </div>
+          <div class="navbar-right">
+            <!-- <ul class="nav navbar&#45;nav"> -->
+            <!--   <li><i class="fa fa&#45;user"></i></li> -->
+            <!--   <li class=""><a href="login.html">Login</a></li> -->
+            <!-- </ul> -->
+          </div><!-- /.nav-right -->
+        </div><!-- /.container -->
+      </nav><!-- /.navbar -->
+    </header><!-- Page Header -->
+
+    <section class="tr-banner section-before bg-image" style="
+
+      background: url('parties/vote.jpg') no-repeat center center fixed;
+      background-size: cover;
+      background-position: center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      color: #fff;
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 120px 0;">
+      <div class="container">
+        <div class="banner-content text-center">
+          <h1>Online Voting Platform</h1>
+          <h3>Search Party and Vote!</h3>
+          <div class="row">
+            <div class="col-xs-6 col-xs-offset-3">
+              <form class="w3-container w3-margin" onsubmit="return castVote(this)">
+                <select id="psel" class="w3-select form-control w3-margin" name="partyId">
+                  <option value="-1">Nothing Selected</option>
+                  <option value="0">BJP</option><br />
+                  <option value="1">Congress</option><br />
+                  <option value="2">AAP</option><br />
+                  <option value="3">NCP</option><br />
+                </select>
+                <input id="pkey" required class="form-control w3-margin" placeholder="Enter Private Key" />
+                <button class="kafe-btn kafe-btn-mint w3-margin full-width" type="submit">Vote</button>
+              </form>
+            </div>
+          </div>
+        </div><!-- /.container -->
+      </section>
+
+      <section class="featured-users">
+        <div class="container">
+          <div class="row">
+            <div class="section-title" style="padding-top: 20px;">
+              <h1>Parties</h1>
+            </div>
+          </div>
+          <div class="row">
+
+            <div class="col-lg-6">
+              <div class="box-home clearfix">
+                <a href="nominees/bjp.html"></a>
+                <img src="parties/bjp.png" alt="bjp" class="img-resonsive">
+                <h3>BJP</h3>
+                <p>Positions :- 3</p>
+              </div>
+            </div>
+
+
+            <div class="col-lg-6">
+              <div class="box-home clearfix">
+                <a href="nominees/inc.html"></a>
+                <img src="parties/congress.png" alt="congress" class="img-resonsive">
+                <h3>Congress</h3>
+                <p>Positions :- 3</p>
+              </div>
+            </div>
+
+
+            <div class="col-lg-6">
+              <div class="box-home clearfix">
+                <a href="nominees/aap.html"></a>
+                <img src="parties/aap.png" alt="aap" class="img-resonsive">
+                <h3>AAP</h3>
+                <p>Positions :- 2</p>
+              </div>
+            </div>
+
+          <div class="col-lg-6">
+            <div class="box-home clearfix">
+              <a href="nominees/bsp.html"></a>
+              <img src="parties/bsp.png" alt="bsp" class="img-resonsive">
+              <h3>NCP</h3>
+              <p>Positions :- 2</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <footer class="footerWhite">
+
+      <!--   <!&#45;&#45; COPY RIGHT &#45;&#45;> -->
+      <!--   <div class="clearfix copyRight"> -->
+        <!--     <div class="container"> -->
+          <!--       <div class="row"> -->
+            <!--  -->
+            <!--         <div class="col&#45;xs&#45;12"> -->
+              <!--           <div class="copyRightWrapper"> -->
+                <!--             <div class="row"> -->
+                  <!--  -->
+                  <!--               <div class="col&#45;sm&#45;5 col&#45;sm&#45;push&#45;7 col&#45;xs&#45;12"> -->
+                    <!--  -->
+                    <!--               </div><!&#45;&#45; /col&#45;sm&#45;5 &#45;&#45;> -->
+                  <!--  -->
+                  <!--               <div class="col&#45;sm&#45;7 col&#45;sm&#45;pull&#45;5 col&#45;xs&#45;12"> -->
+                    <!--                 <div class="copyRightText"> -->
+                      <!--                   <p>Copyright &#38;copy; eVoting&#38;nbsp;2018. All Rights Reserved</p> -->
+                      <!--                 </div> -->
+                    <!--               </div><!&#45;&#45; /col&#45;sm&#45;7 &#45;&#45;> -->
+                  <!--  -->
+                  <!--             </div><!&#45;&#45; /row &#45;&#45;> -->
+                <!--           </div><!&#45;&#45; /copyRightWrapper &#45;&#45;> -->
+              <!--         </div><!&#45;&#45; /col&#45;xs&#45;2 &#45;&#45;> -->
+            <!--  -->
+            <!--       </div><!&#45;&#45; /row &#45;&#45;> -->
+          <!--     </div><!&#45;&#45; /container &#45;&#45;> -->
+        <!--   </div><!&#45;&#45; /copyRight &#45;&#45;> -->
+      <!--  -->
+      <!-- </footer> -->
+
+    <a id="scrollup">Scroll</a>
+    <script src="source/assets/js/jquery-3.2.1.min.js"></script>
+    <script src="source/assets/js/bootstrap.min.js"></script>
+    <script src="source/assets/js/waypoints.min.js"></script>
+    <script src="source/assets/js/jquery.easypiechart.min.js"></script>
+    <script src="source/assets/js/debunk.js"></script>
+    <script type="text/javascript">
+      function castVote(parent) {
+        var d = document.getElementById('psel').value;
+        if(d === "-1") {
+          alert("Choose a party to vote!");
+          return false;
+        }
+        var t = {
+          "$class": "org.party.Vote",
+          "asset": "org.party.Result#1",
+          "voter": `org.party.Voter#${document.getElementById('pkey').value}`,
+          "newValue": parseInt(d)
+        };
+        $.ajax({
+          url: 'http://10.42.0.138:3000/api/Vote',
+          dataType: 'json',
+          type: 'post',
+          contentType: 'application/json',
+          data: JSON.stringify(t),
+          processData: false,
+          success: function(data, textStatus, xhr) {
+            alert("Success!");
+          },
+          error: function(xhr, text, error) {
+            // alert("Success");
+          }
+        });
+      }
+    </script>
+  </body>
+
+</html>
