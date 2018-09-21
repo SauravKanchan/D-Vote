@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<head>
+	<meta charset="utf-8">
+	<title>eVoting - Shiv Sena</title>
+	<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Online Voting Platform">
+	<meta name="keywords" content="Online Voting Platform, eVoting">
+	<link rel="apple-touch-icon" sizes="57x57" href="../source/assets/img/favicons/apple-touch-icon-57x57.html">
+	<link rel="apple-touch-icon" sizes="114x114" href="../source/assets/img/favicons/apple-touch-icon-114x114.html">
+	<link rel="apple-touch-icon" sizes="72x72" href="../source/assets/img/favicons/apple-touch-icon-72x72.html">
+	<link rel="apple-touch-icon" sizes="144x144" href="../source/assets/img/favicons/apple-touch-icon-144x144.html">
+	<link rel="apple-touch-icon" sizes="60x60" href="../source/assets/img/favicons/apple-touch-icon-60x60.html">
+	<link rel="apple-touch-icon" sizes="120x120" href="../source/assets/img/favicons/apple-touch-icon-120x120.html">
+	<link rel="apple-touch-icon" sizes="76x76" href="../source/assets/img/favicons/apple-touch-icon-76x76.html">
+	<link rel="apple-touch-icon" sizes="152x152" href="../source/assets/img/favicons/apple-touch-icon-152x152.html">
+	<link rel="apple-touch-icon" sizes="180x180" href="../source/assets/img/favicons/apple-touch-icon-180x180.html">
+	<link rel="icon" type="image/png" href="../source/assets/img/favicons/favicon-96x96.html" sizes="96x96">
+	<link rel="icon" type="image/png" href="../source/assets/img/favicons/favicon-16x16.html" sizes="16x16">
+	<link rel="icon" type="image/png" href="../source/assets/img/favicons/favicon-32x32.html" sizes="32x32">
+	<meta name="msapplication-TileColor" content="#2b5797">
+	<meta name="msapplication-TileImage" content="../source/assets/img/favicons/mstile-144x144.html">
+	<link type="text/css" href="../source/assets/css/style.css" rel="stylesheet" />
+	<script src="../source/assets/js/modernizr-custom.html"></script>
+
+</head>
+
+<body>
+
+	<header class="tr-header">
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="../index.html">eVoting</a>
+				</div>
+				<div class="navbar-right">
+
+					<ul class="nav navbar-nav">
+						<li><i class="fa fa-user"></i></li>
+						<li class=""><a href="../login.html">Login</a></li>
+					</ul>
+				</div><!-- /.nav-right -->
+			</div><!-- /.container -->
+		</nav><!-- /.navbar -->
+	</header><!-- Page Header -->
+
+	<div class="featured-users">
+		<div class="container">
+			<div class="row">
+				<div class="section-title" style="padding-top: 20px;">
+					<h1>Shiv Sena</h1>
+				</div>
+				<div class="row">
+					<div class="col-lg-4">
+					<span id="comment178429218340"></span>
+					<div class="text-center card-box">
+						<div class="clearfix"></div>
+						<div class="member-card">
+							<div class="thumb-xl member-thumb m-b-10 center-block">
+								<img src="../source/nominee/uploads/151725525803191.png" class="img-circle img-thumbnail" alt="profile-image">
+								<i class="mdi mdi-star-circle member-star text-success" title="verified user"></i>
+							</div>
+
+							<div class="">
+								<h4 class="m-b-5">Nominee Thirteen</h4>
+								<p class="text-mint"><span class="text-mint"> Harvard Campus Election</span></p>
+								<p> <span><span class="text-muted">Running to Be: </span><span class="text-mint">Vice President</span> </span></p>
+							</div>
+							<a href="../manifesto/178429218340.html" class="kafe-btn kafe-btn-mint-small"><i class="fa fa-user-secret"
+									aria-hidden="true"></i> View Manifesto</a>
+							<a onclick="vote(178429218340,148404653372,412962962113)" class="kafe-btn kafe-btn-danger-small"><i class="fa fa-thumbs-o-up"
+									aria-hidden="true"></i> vote</a>
+						</div>
+					</div>
+				</div><!-- /.col-lg-4 -->
+			</div><!-- END OF INTERNAL ROW -->
+		</div><!-- /.container -->
+	</div>
+
+		<footer class="footerWhite">
+			<div class="clearfix copyRight">
+				<div class="container">
+					<div class="row">
+
+						<div class="col-xs-12">
+							<div class="copyRightWrapper">
+								<div class="row">
+
+									<div class="col-sm-5 col-sm-push-7 col-xs-12">
+									</div><!-- /col-sm-5 -->
+
+									<div class="col-sm-7 col-sm-pull-5 col-xs-12">
+										<div class="copyRightText">
+											<p>Copyright &copy; eVoting&nbsp;2018. All Rights Reserved</p>
+										</div>
+									</div><!-- /col-sm-7 -->
+
+								</div><!-- /row -->
+							</div><!-- /copyRightWrapper -->
+						</div><!-- /col-xs-2 -->
+
+					</div><!-- /row -->
+				</div><!-- /container -->
+			</div><!-- /copyRight -->
+
+		</footer>
+
+		<a id="scrollup">Scroll</a>
+
+		<script src="../source/assets/js/jquery-3.2.1.min.js"></script>
+		<script src="../source/assets/js/bootstrap.min.js"></script>
+		<script src="../source/assets/js/debunk.js"></script>
+		<script type="text/javascript">
+			function vote(nomineeid, organizationid, positionid) {
+				$.ajax({
+					type: "POST",
+					url: "http://www.themashabrand.com/scripts/eVoting/source/frontend/template/requests/vote.php",
+					data: "nomineeid=" + nomineeid + "&organizationid=" + organizationid + "&positionid=" + positionid,
+					cache: false,
+					success: function (html) {
+						$('#comment' + nomineeid).html('<div class="message-reported">' + html + '</div>');
+					}
+				});
+			}		 
+		</script>
+</body>
+
+</html>
