@@ -1,0 +1,26 @@
+namespace org.party
+
+asset Result identified by version {
+  o String version
+  --> Voter voter
+  o String bjp
+  o String aap
+  o String cong
+}
+
+participant Voter identified by adhaar {
+  o String adhaar
+  o String firstName
+  o String lastName
+}
+
+transaction SampleTransaction {
+  --> Result result
+  o String newValue
+}
+
+event SampleEvent {
+  --> Result result
+  o String oldValue
+  o String newValue
+}
