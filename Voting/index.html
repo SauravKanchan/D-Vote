@@ -63,7 +63,7 @@
           <h3>Search Party and Vote!</h3>
           <div class="row">
             <div class="col-xs-6 col-xs-offset-3">
-              <form class="w3-container w3-margin" onsubmit="return castVote(this)">
+              <form class="w3-container w3-margin" id="idForm">
                 <select id="psel" class="w3-select form-control w3-margin" name="partyId">
                   <option value="-1">Nothing Selected</option>
                   <option value="0">BJP</option><br />
@@ -138,7 +138,8 @@
     <script src="source/assets/js/jquery.easypiechart.min.js"></script>
     <script src="source/assets/js/debunk.js"></script>
     <script type="text/javascript">
-      function castVote(parent) {
+      $("#idForm").submit( function(e) {
+
         var d = document.getElementById('psel').value;
         if(d === "-1") {
           alert("Choose a party to vote!");
@@ -164,7 +165,8 @@
             alert("Success");
           }
         });
-      }
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+      });
     </script>
   </body>
 
