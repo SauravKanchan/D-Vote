@@ -9,6 +9,7 @@
 	<meta name="description" content="Online Voting Platform">
 	<meta name="keywords" content="Online Voting Platform, eVoting ">
 	<meta name="author" content="index.html">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
 	<script src="https://www.amcharts.com/lib/3/serial.js"></script>
 	<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
@@ -63,48 +64,67 @@
 
 	<section class="tr-banner section-before bg-image" style="
 
-  background: url('parties/vote.jpg') no-repeat center center fixed;
-  
-  background-size: cover;
-  background-position: center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  color: #fff;
-  width: 100%;
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #fff;
-  padding: 120px 0;">
+		background: url('parties/vote.jpg') no-repeat center center fixed;
+		
+		background-size: cover;
+		background-position: center center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		color: #fff;
+		width: 100%;
+		
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		color: #fff;
+		padding: 120px 0;">
 		<div class="container">
 			<div class="banner-content text-center">
 				<h1>Online Voting Platform</h1>
-				<h2>Search Party and Vote!</h2>
-				<form class="form-horizontal" method="post" action="http://www.themashabrand.com/scripts/eVoting/search">
-					<div class="col-md-9 no-padd">
-						<div class="input-group">
-							<select name="organizationid" type="text" class="form-control" onclick="ajaxfunction(this.value)">
-								<option value="0">Nothing Selected</option>
-								<option value="214407771051">BJP</option><br />
-								<option value="148404653372">Congress</option><br />
-								<option value="191158759771">AAP</option><br />
-								<option value="398673516259">BSP</option><br />
-								<option value="357540792223">MNS</option><br />
-								<option value="340866181644">ShivSena</option><br />
-							</select>
+				<h3>Search Party and Vote!</h3>
+				<form class="w3-container w3-margin" method="POST" onsubmit="return selVal()">
+					<select id="psel" class="w3-select form-control w3-margin" required name="partyId">
+						<option value="0">Nothing Selected</option>
+						<option value="214407771051">BJP</option><br />
+						<option value="148404653372">Congress</option><br />
+						<option value="191158759771">AAP</option><br />
+						<option value="398673516259">BSP</option><br />
+						<option value="357540792223">MNS</option><br />
+						<option value="340866181644">ShivSena</option><br />
+					</select>
+					<input required class="form-control w3-margin" placeholder="Enter Private Key" />
+					<button class="kafe-btn kafe-btn-mint w3-margin full-width" type="submit">Vote</button>
+				</form>
+
+				<!-- <form method="post" action="http://www.themashabrand.com/scripts/eVoting/search">
+					
+					<div class="form-body">
+						<div class="form-row">
+							<div class="form-controls input-group">
+								<select name="organizationid" type="text" class="form-control" onclick="ajaxfunction(this.value)">
+									<option value="0">Nothing Selected</option>
+									<option value="214407771051">BJP</option><br />
+									<option value="148404653372">Congress</option><br />
+									<option value="191158759771">AAP</option><br />
+									<option value="398673516259">BSP</option><br />
+									<option value="357540792223">MNS</option><br />
+									<option value="340866181644">ShivSena</option><br />
+								</select>
+							</div>
 						</div>
 					</div>
-					<div class="col-md-3 no-padd">
-						<div class="input-group">
-							<input type="hidden" name="token" value="af1692167031953b2b710d466976435f" />
+					<div class="form-row form-controls">
+						<input name="privateKey" class="form-control" placeholder="Enter your key" type="text">
+					</div>
+					<div class="form-row">
+						<div class="form-controls input-group">
 							<button type="submit" class="kafe-btn kafe-btn-mint full-width">Vote</button>
 						</div>
 					</div>
-				</form>
+				</form> -->
 
 			</div>
 			<!--/. banner-content -->
@@ -230,6 +250,14 @@
 					$("#sub").html(data);
 				}
 			});
+		}
+		function selVal() {
+			var d = document.getElementById('psel').value;
+			if(d === "0") {
+				alert("Choose a party to vote!");
+				return false;
+			}
+			return true;
 		}
 	</script>
 </body>

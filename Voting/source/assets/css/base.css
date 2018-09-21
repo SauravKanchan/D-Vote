@@ -787,7 +787,11 @@ body.greybg {
   color: #899797;
 }
 
-.form-sign .form-row { 
+.form-row .form-control{
+  margin: 10px 10px;
+}
+
+.form-sign .form-row {
   position: relative; 
   padding-bottom: 10px; 
 }
