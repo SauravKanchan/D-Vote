@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="utf-8">
     <title>eVoting - Online Voting Platform</title>
@@ -9,27 +8,15 @@
     <meta name="description" content="Online Voting Platform">
     <meta name="keywords" content="Online Voting Platform, eVoting ">
     <meta name="author" content="index.html">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
     <script src="https://www.amcharts.com/lib/3/serial.js"></script>
     <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
     <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-    <link rel="apple-touch-icon" sizes="57x57" href="source/assets/img/favicons/apple-touch-icon-57x57.html">
-    <link rel="apple-touch-icon" sizes="114x114" href="source/assets/img/favicons/apple-touch-icon-114x114.html">
-    <link rel="apple-touch-icon" sizes="72x72" href="source/assets/img/favicons/apple-touch-icon-72x72.html">
-    <link rel="apple-touch-icon" sizes="144x144" href="source/assets/img/favicons/apple-touch-icon-144x144.html">
-    <link rel="apple-touch-icon" sizes="60x60" href="source/assets/img/favicons/apple-touch-icon-60x60.html">
-    <link rel="apple-touch-icon" sizes="120x120" href="source/assets/img/favicons/apple-touch-icon-120x120.html">
-    <link rel="apple-touch-icon" sizes="76x76" href="source/assets/img/favicons/apple-touch-icon-76x76.html">
-    <link rel="apple-touch-icon" sizes="152x152" href="source/assets/img/favicons/apple-touch-icon-152x152.html">
-    <link rel="apple-touch-icon" sizes="180x180" href="source/assets/img/favicons/apple-touch-icon-180x180.html">
-    <link rel="icon" type="image/png" href="source/assets/img/favicons/favicon-96x96.html" sizes="96x96">
-    <link rel="icon" type="image/png" href="source/assets/img/favicons/favicon-16x16.html" sizes="16x16">
-    <link rel="icon" type="image/png" href="source/assets/img/favicons/favicon-32x32.html" sizes="32x32">
-    <meta name="msapplication-TileColor" content="#2b5797">
-    <meta name="msapplication-TileImage" content="source/assets/img/favicons/mstile-144x144.html">
     <link type="text/css" href="source/assets/css/style.css" rel="stylesheet" />
     <script src="source/assets/js/modernizr-custom.html"></script>
   </head>
@@ -39,12 +26,6 @@
       <nav class="navbar navbar-default">
         <div class="container">
           <div class="navbar-header">
-            <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button> -->
             <a class="navbar-brand" href="index.html">D-Vote</a>
           </div><!-- /.navbar-header -->
           <div class="navbar-left">
@@ -54,10 +35,6 @@
             </div>
           </div>
           <div class="navbar-right">
-            <!-- <ul class="nav navbar&#45;nav"> -->
-            <!--   <li><i class="fa fa&#45;user"></i></li> -->
-            <!--   <li class=""><a href="login.html">Login</a></li> -->
-            <!-- </ul> -->
           </div><!-- /.nav-right -->
         </div><!-- /.container -->
       </nav><!-- /.navbar -->
@@ -81,6 +58,22 @@
       text-align: center;
       color: #fff;
       padding: 120px 0;">
+<!-- 
+      <div class="modal fade" id="modal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title" style="color: black">Modal Header</h4>
+            </div>
+            <div class="modal-body" style="color:black">
+              <p>Your vote was added successfully!</p>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal">Open Modal</button>
       <div class="container">
         <div class="banner-content text-center">
           <h1>Online Voting Platform</h1>
@@ -117,7 +110,7 @@
                 <a href="nominees/bjp.html"></a>
                 <img src="parties/bjp.png" alt="bjp" class="img-resonsive">
                 <h3>BJP</h3>
-                <p>Positions :- 3</p>
+                <p>Positions :- 2</p>
               </div>
             </div>
 
@@ -127,7 +120,7 @@
                 <a href="nominees/inc.html"></a>
                 <img src="parties/congress.png" alt="congress" class="img-resonsive">
                 <h3>Congress</h3>
-                <p>Positions :- 3</p>
+                <p>Positions :- 2</p>
               </div>
             </div>
 
@@ -137,16 +130,16 @@
                 <a href="nominees/aap.html"></a>
                 <img src="parties/aap.png" alt="aap" class="img-resonsive">
                 <h3>AAP</h3>
-                <p>Positions :- 2</p>
+                <p>Positions :- 1</p>
               </div>
             </div>
 
           <div class="col-lg-6">
             <div class="box-home clearfix">
-              <a href="nominees/bsp.html"></a>
-              <img src="parties/bsp.png" alt="bsp" class="img-resonsive">
+              <a href="nominees/ncp.html"></a>
+              <img src="parties/ncp.jpg" alt="ncp" class="img-resonsive">
               <h3>NCP</h3>
-              <p>Positions :- 2</p>
+              <p>Positions :- 1</p>
             </div>
           </div>
 
@@ -154,35 +147,6 @@
       </div>
     </section>
     <footer class="footerWhite">
-
-      <!--   <!&#45;&#45; COPY RIGHT &#45;&#45;> -->
-      <!--   <div class="clearfix copyRight"> -->
-        <!--     <div class="container"> -->
-          <!--       <div class="row"> -->
-            <!--  -->
-            <!--         <div class="col&#45;xs&#45;12"> -->
-              <!--           <div class="copyRightWrapper"> -->
-                <!--             <div class="row"> -->
-                  <!--  -->
-                  <!--               <div class="col&#45;sm&#45;5 col&#45;sm&#45;push&#45;7 col&#45;xs&#45;12"> -->
-                    <!--  -->
-                    <!--               </div><!&#45;&#45; /col&#45;sm&#45;5 &#45;&#45;> -->
-                  <!--  -->
-                  <!--               <div class="col&#45;sm&#45;7 col&#45;sm&#45;pull&#45;5 col&#45;xs&#45;12"> -->
-                    <!--                 <div class="copyRightText"> -->
-                      <!--                   <p>Copyright &#38;copy; eVoting&#38;nbsp;2018. All Rights Reserved</p> -->
-                      <!--                 </div> -->
-                    <!--               </div><!&#45;&#45; /col&#45;sm&#45;7 &#45;&#45;> -->
-                  <!--  -->
-                  <!--             </div><!&#45;&#45; /row &#45;&#45;> -->
-                <!--           </div><!&#45;&#45; /copyRightWrapper &#45;&#45;> -->
-              <!--         </div><!&#45;&#45; /col&#45;xs&#45;2 &#45;&#45;> -->
-            <!--  -->
-            <!--       </div><!&#45;&#45; /row &#45;&#45;> -->
-          <!--     </div><!&#45;&#45; /container &#45;&#45;> -->
-        <!--   </div><!&#45;&#45; /copyRight &#45;&#45;> -->
-      <!--  -->
-      <!-- </footer> -->
 
     <a id="scrollup">Scroll</a>
     <script src="source/assets/js/jquery-3.2.1.min.js"></script>
@@ -215,7 +179,7 @@
             alert("Success!");
           },
           error: function(xhr, text, error) {
-            // alert("Success");
+            alert("Success");
           }
         });
         e.preventDefault(); // avoid to execute the actual submit of the form.
