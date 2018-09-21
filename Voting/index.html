@@ -58,7 +58,7 @@
       text-align: center;
       color: #fff;
       padding: 120px 0;">
-<!-- 
+<!--
       <div class="modal fade" id="modal" role="dialog">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -73,7 +73,7 @@
           </div>
         </div>
       </div> -->
-      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modal">Open Modal</button>
+      <!-- <button type="button" class="btn btn&#45;info btn&#45;lg" data&#45;toggle="modal" data&#45;target="#modal">Open Modal</button> -->
       <div class="container">
         <div class="banner-content text-center">
           <h1>Online Voting Platform</h1>
@@ -150,15 +150,17 @@
 
     <a id="scrollup">Scroll</a>
     <script src="source/assets/js/jquery-3.2.1.min.js"></script>
+    <script src="source/assets/js/bootstrap-notify.min.js"></script>
     <script src="source/assets/js/bootstrap.min.js"></script>
     <script src="source/assets/js/waypoints.min.js"></script>
     <script src="source/assets/js/jquery.easypiechart.min.js"></script>
     <script src="source/assets/js/debunk.js"></script>
     <script type="text/javascript">
+        host = "http://192.168.0.109"
       $("#idForm").submit( function(e) {
 
-        var d = document.getElementById('psel').value;
-        if(d === "-1") {
+        d = document.getElementById('psel').value;
+        if(d == "-1") {
           alert("Choose a party to vote!");
           return false;
         }
@@ -169,20 +171,45 @@
           "newValue": parseInt(d)
         };
         $.ajax({
-          url: 'http://10.42.0.138:3000/api/Vote',
+          url: host+':3000/api/Voter/'+document.getElementById('pkey').value,
           dataType: 'json',
-          type: 'post',
+          type: 'get',
           contentType: 'application/json',
-          data: JSON.stringify(t),
           processData: false,
-          success: function(data, textStatus, xhr) {
-            alert("Success!");
-          },
-          error: function(xhr, text, error) {
-            alert("Success");
-          }
-        });
-        e.preventDefault(); // avoid to execute the actual submit of the form.
+          }).then(function(res){
+            if(res.voted==1){
+              $.notify({
+                message: 'You have already voted'
+              },{
+                type: 'danger'
+              });
+            }else{
+              $.ajax({
+                url: host+':3000/api/Vote',
+                dataType: 'json',
+                type: 'post',
+                contentType: 'application/json',
+                data: JSON.stringify(t),
+                processData: false,
+                success: function(data, textStatus, xhr) {
+                  $.notify({
+                    message: 'Your vote has beeen casted successfully'
+                  },{
+                    type: 'success'
+                  });
+                },
+                error: function(xhr, text, error) {
+                  $.notify({
+                    message: 'Your vote has beeen casted successfully'
+                  },{
+                    type: 'success'
+                  });
+                }
+              });
+            }
+
+          })
+          e.preventDefault(); // avoid to execute the actual submit of the form.
       });
     </script>
   </body>
