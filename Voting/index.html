@@ -11,6 +11,7 @@
 	<meta name="author" content="index.html">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
 	<script src="https://www.amcharts.com/lib/3/serial.js"></script>
 	<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
 	<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
@@ -65,7 +66,6 @@
 	<section class="tr-banner section-before bg-image" style="
 
 		background: url('parties/vote.jpg') no-repeat center center fixed;
-		
 		background-size: cover;
 		background-position: center center;
 		-webkit-background-size: cover;
@@ -85,49 +85,20 @@
 			<div class="banner-content text-center">
 				<h1>Online Voting Platform</h1>
 				<h3>Search Party and Vote!</h3>
-				<form class="w3-container w3-margin" method="POST" onsubmit="return selVal()">
-					<select id="psel" class="w3-select form-control w3-margin" required name="partyId">
-						<option value="0">Nothing Selected</option>
-						<option value="214407771051">BJP</option><br />
-						<option value="148404653372">Congress</option><br />
-						<option value="191158759771">AAP</option><br />
-						<option value="398673516259">BSP</option><br />
-						<option value="357540792223">MNS</option><br />
-						<option value="340866181644">ShivSena</option><br />
+				<form class="w3-container w3-margin" onsubmit="return castVote(this)">
+					<select id="psel" class="w3-select form-control w3-margin" name="partyId">
+						<option value="-1">Nothing Selected</option>
+						<option value="0">BJP</option><br />
+						<option value="1">Congress</option><br />
+						<option value="2">AAP</option><br />
+						<option value="3">BSP</option><br />
+						<option value="4">MNS</option><br />
+						<option value="5">ShivSena</option><br />
 					</select>
-					<input required class="form-control w3-margin" placeholder="Enter Private Key" />
+					<input id="pkey" required class="form-control w3-margin" placeholder="Enter Private Key" />
 					<button class="kafe-btn kafe-btn-mint w3-margin full-width" type="submit">Vote</button>
 				</form>
-
-				<!-- <form method="post" action="http://www.themashabrand.com/scripts/eVoting/search">
-					
-					<div class="form-body">
-						<div class="form-row">
-							<div class="form-controls input-group">
-								<select name="organizationid" type="text" class="form-control" onclick="ajaxfunction(this.value)">
-									<option value="0">Nothing Selected</option>
-									<option value="214407771051">BJP</option><br />
-									<option value="148404653372">Congress</option><br />
-									<option value="191158759771">AAP</option><br />
-									<option value="398673516259">BSP</option><br />
-									<option value="357540792223">MNS</option><br />
-									<option value="340866181644">ShivSena</option><br />
-								</select>
-							</div>
-						</div>
-					</div>
-					<div class="form-row form-controls">
-						<input name="privateKey" class="form-control" placeholder="Enter your key" type="text">
-					</div>
-					<div class="form-row">
-						<div class="form-controls input-group">
-							<button type="submit" class="kafe-btn kafe-btn-mint full-width">Vote</button>
-						</div>
-					</div>
-				</form> -->
-
 			</div>
-			<!--/. banner-content -->
 		</div><!-- /.container -->
 	</section>
 
@@ -240,24 +211,32 @@
 	<script src="source/assets/js/jquery.easypiechart.min.js"></script>
 	<script src="source/assets/js/debunk.js"></script>
 	<script type="text/javascript">
-		function ajaxfunction(parent) {
-			$.ajax({
-				type: "POST",
-				url: "http://www.themashabrand.com/scripts/eVoting/source/admin/template/requests/process.php",
-				data: "parent=" + parent,
-				cache: false,
-				success: function (data) {
-					$("#sub").html(data);
-				}
-			});
-		}
-		function selVal() {
+		function castVote(parent) {
 			var d = document.getElementById('psel').value;
-			if(d === "0") {
+			if(d === "-1") {
 				alert("Choose a party to vote!");
 				return false;
 			}
-			return true;
+			var t = {
+				"$class": "org.party.Vote",
+				"asset": "org.party.Result#1",
+				"voter": `org.party.Voter#${document.getElementById('pkey').value}`,
+				"newValue": parseInt(d)
+			};
+			$.ajax({
+				url: 'http://10.42.0.138:3000/api/Vote',
+				dataType: 'json',
+				type: 'post',
+				contentType: 'application/json',
+				data: JSON.stringify(t),
+				processData: false,
+				success: function(data, textStatus, xhr) {
+					alert("Success!");
+				},
+				error: function(xhr, text, error) {
+					// alert("Success");
+				}
+			});
 		}
 	</script>
 </body>
