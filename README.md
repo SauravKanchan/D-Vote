@@ -9,7 +9,7 @@ various purposes including views on different issues or political
 voting
 
 ### Advantanges of blockchain in E-Voting:
-[Money spend in Election](assets/Evote.PNG)
+![Money spend in Election](assets/Evote.PNG)
 - Tamper proof
 - Decentralised(No central point of failure)
 - Transparent
@@ -20,5 +20,6 @@ voting
 - HyperLedger 50,0000 TPM(Transaction Per Minute), Ehterium 1000TPM
 - 51% Attack
 ### Architecture
+![Architecture](assets/architecture.png)
 
 ### Using IPFS to host
