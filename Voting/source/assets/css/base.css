@@ -1,40 +1,3 @@
-/* ==========================================================================
-   The Kafe - Ultimate Freelance Marketplace Template
-   ========================================================================== */
-/*
-* Author Name: TheMashaBrand
-* Author URI: http://themeforest.net/user/themashabrand
-* Website: http://www.themashabrand.com 
-*/
-
-/* ------------------------------------------------------------------- */
-/* Table of Contents
----------------------------------------------------------------------- 
-1. Reset & Basics                   - Line 28
-2. Base Styles                      
-    - Typogrphy Section             - Line 85
-	- Links Section                 - Line 127
-	- Lists Section                 - Line 157
-	- Kafe Button Section           - Line 176
-3. Job List 
-    - Category List Section         - Line 297
-	- Search Section                - Line 336
-	- Job Section                   - Line 394
-	- Pagination Section            - Line 526
-	- Media Queries                 - Line 576
-4. Sidebar - Affix Section          - Line 638
-5. Form Signup                      - Line 669
-
----------------------------------------------------------------------- */ 
-
-/* #Reset & Basics (Inspired by E. Meyers)
-================================================== */
-
-@font-face {
-  font-family: Gsans;
-  src: url('../fonts/gsr.ttf'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
-}  
-
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, fieldset, form, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -45,14 +8,12 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   vertical-align: baseline; 
 }
 
-
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
 body {
   line-height: 1;
-  font-family: Gsans;
 }
 
 blockquote, q {
@@ -83,7 +44,6 @@ table {
    ========================================================================== */
 html, body {
   overflow-x: hidden;
-  font-family: Gsans;
   text-align: left;
   -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
  -webkit-text-size-adjust: 100%;
@@ -93,7 +53,7 @@ html, body {
 /* Typography
 ---------------------------------------------------------------------- */
 h1, h2, h3, h4, h5, h6 {
-  font-family: Gsans, 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #2C3E50;
   letter-spacing: 1px;
 }
@@ -110,7 +70,7 @@ h5 { font-size: 16px; line-height: 28px; }
 h6 { font-size: 14px; line-height: 24px; }
 
 p { 
-  font-family: Gsans, Gsans, 'Varela Round', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   line-height: 24px;
   margin: 0;
   font-size: 14px;
@@ -211,7 +171,7 @@ li p { line-height: 24px; }
 }
 
 .kafe-btn-default{
-  font-family: Gsans, 'Varela Round', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   letter-spacing: 1px;
   color: #fff;
   border-width: 1px;
@@ -223,7 +183,7 @@ li p { line-height: 24px; }
 }
 
 .kafe-btn-default-new{
-  font-family: Gsans, 'Varela Round', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   letter-spacing: 1px;
   color: #fff;
   border-width: 1px;
@@ -233,7 +193,7 @@ li p { line-height: 24px; }
   padding: 5px 10px;
 }
 .kafe-btn-default-mint{
-  font-family: Gsans, 'Varela Round', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   letter-spacing: 1px;
   color: #00C4CF;
   border-width: 1px;
@@ -249,7 +209,7 @@ li p { line-height: 24px; }
 }
 
 .kafe-btn-mint{
-  font-family: Gsans, 'Varela Round', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-weight: 700;
   font-size: 14px;
 
@@ -262,7 +222,7 @@ li p { line-height: 24px; }
 
 
 .kafe-btn-mint-small{
-  font-family: Gsans, 'Varela Round', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-weight: 700;
   font-size: 12px;
   padding: 6px 11px;
@@ -272,7 +232,7 @@ li p { line-height: 24px; }
 }
 
 .kafe-btn-danger{
-  font-family: Gsans, 'Varela Round', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-weight: 700;
   font-size: 14px;
 
@@ -284,7 +244,7 @@ li p { line-height: 24px; }
 }
 
 .kafe-btn-danger-small{
-  font-family: Gsans, 'Varela Round', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-weight: 700;
   font-size: 12px;
   padding: 6px 11px;
@@ -373,14 +333,14 @@ body.greybg {
   color: #2c3e50 !important;
 }
 .list .cat-top{
-  font-family: Gsans, 'Varela Round', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-weight: 700;
   color: #fff;
   font-size: 14px !important;
   letter-spacing: 1px;
 }
 .list .cat-list {
-  font-family: Gsans, 'Varela Round', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-size: 14px !important;
   font-weight: 300;
   color: #868585 !important;
@@ -389,7 +349,7 @@ body.greybg {
 .list .active.cat-list {
   font-size: 14px;
   color: #fff !important;
-  font-family: Gsans, 'Varela Round', sans-serif;
+  font-family: 'Varela Round', sans-serif;
 }
 
 /*----------------------------------- */
@@ -548,13 +508,13 @@ body.greybg {
   padding: 10px 0 5px 0;
 }
 .job .mid-sec p {
-  font-family: Gsans, 'Varela Round', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   padding-bottom: 0px;
   font-size: 14px;
   color: #868585 !important;
 }
 .job .mid-sec .label-success {
-  font-family: Gsans, 'Varela Round', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   background: #05cb95 !important; 
   margin-bottom: 5px;
   font-size: 10px;
@@ -576,7 +536,7 @@ body.greybg {
   letter-spacing: 1px;
 }
 .job .bottom-sec p {
-  font-family: Gsans, 'Varela Round', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   padding-bottom: 0px;
   font-size: 14px;
   color: #868585 !important;
@@ -753,7 +713,7 @@ body.greybg {
   width: 100%; 
   height: 57px; 
   padding: 10px 23px 10px 31px; 
-  font-family: Gsans, 'Varela Round', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-weight: 300;
   font-size: 16px;
   line-height: 1; 
@@ -806,7 +766,7 @@ body.greybg {
   border: 0; 
   border-radius: 29px; 
   background: #05cb95; 
-  font-family: Gsans, 'Varela Round', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-weight: 700;
   font-size: 14px; 
   color: #fff; 
@@ -821,7 +781,7 @@ body.greybg {
 
 .form-sign .form-foot a.more-link { 
   display: inline-block; 
-  font-family: Gsans, 'Varela Round', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-weight: 700;
   font-size: 14px; 
   color: #fff; 
