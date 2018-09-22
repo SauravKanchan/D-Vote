@@ -1,12 +1,19 @@
 <html>
 
 <head>
-  <!-- Styles -->
   <style>
     #chartdiv {
-      width: 100%;
+      width: 70%;
       height: 500px;
-      font-size: 11px;
+      font-size: 15px;
+    }
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      border-radius: 5px;
+    }
+    .container {
+      padding: 20px 30px;
     }
   </style>
   <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
@@ -14,65 +21,117 @@
   <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
   <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
   <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link type="text/css" href="source/assets/css/style.css" rel="stylesheet" />
+  <script src="source/assets/js/modernizr-custom.html"></script>
   <script>
     function showChart() {
-      
+      $.ajax({
+        url: "http://192.168.0.109:3000/api/Result",
+        dataType: 'json',
+        type: 'get',
+        contentType: 'application/json',
+        processData: false
+      }).then(function (res) {
+        AmCharts.makeChart("chartdiv", {
+          "type": "serial",
+          "theme": "light",
+          "dataProvider": [{
+            "party": "BJP",
+            "votes": res[0].bjp
+          },
+          {
+            "party": "CONGRESS",
+            "votes": res[0].cong
+          },
+          {
+            "party": "AAP",
+            "votes": res[0].aap
+          },
+          {
+            "party": "NCP",
+            "votes": res[0].ncp
+          },
+          ],
+          "valueAxes": [{
+            "gridColor": "#FFFFFF",
+            "gridAlpha": 0.2,
+            "dashLength": 0
+          }],
+          "gridAboveGraphs": true,
+          "startDuration": 1,
+          "graphs": [{
+            "balloonText": "[[category]]: <b>[[value]]</b>",
+            "fillAlphas": 0.8,
+            "lineAlpha": 0.2,
+            "type": "column",
+            "valueField": "votes",
+            "fixedColumnWidth": 55
+          }],
+          // "depth3D": 10,
+          // "angle": 10,
+          "chartCursor": {
+            "categoryBalloonEnabled": false,
+            "cursorAlpha": 0,
+            "zoomable": false
+          },
+          "categoryField": "party",
+          "categoryAxis": {
+            "gridPosition": "start",
+            "gridAlpha": 0,
+            "tickPosition": "start",
+            "tickLength": 26
+          }
+        });
+      });
     }
-    var chart = AmCharts.makeChart("chartdiv", {
-      "type": "serial",
-      "theme": "light",
-      "dataProvider": [{
-        "party": "BJP",
-        "votes": 10
-      },
-      {
-        "party": "INC",
-        "votes": 5
-      },
-      {
-        "party": "AAP",
-        "votes": 7
-      },
-      ],
-      "valueAxes": [{
-        "gridColor": "#FFFFFF",
-        "gridAlpha": 0.2,
-        "dashLength": 0
-      }],
-      "gridAboveGraphs": true,
-      "startDuration": 1,
-      "graphs": [{
-        "balloonText": "[[category]]: <b>[[value]]</b>",
-        "fillAlphas": 0.8,
-        "lineAlpha": 0.2,
-        "type": "column",
-        "valueField": "votes"
-      }],
-      "chartCursor": {
-        "categoryBalloonEnabled": false,
-        "cursorAlpha": 0,
-        "zoomable": false
-      },
-      "categoryField": "party",
-      "categoryAxis": {
-        "gridPosition": "start",
-        "gridAlpha": 0,
-        "tickPosition": "start",
-        "tickLength": 20
-      },
-      "export": {
-        "enabled": true
-      }
-
-    });
   </script>
 
 </head>
 
 <body onload="showChart()">
-  <center>
-    <div id="chartdiv"></div>
-  </center>
+  <header class="tr-header">
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">D-Vote</a>
+        </div><!-- /.navbar-header -->
+        <div class="navbar-left">
+          <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="chart.html">Results</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="navbar-right">
+        </div><!-- /.nav-right -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+  </header><!-- Page Header -->
+
+  <section class="tr-banner section-before bg-image" style="
+      background: url('parties/vote.jpg') no-repeat center center fixed;
+      background-size: cover;
+      background-position: center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      color: #fff;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 120px 0;">
+      <div class="container card" style="background: white;">
+          <center>
+              <div id="chartdiv"></div>
+            </center>
+      </div></section>
 </body>
 
 </html>
