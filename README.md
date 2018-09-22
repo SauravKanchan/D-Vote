@@ -22,4 +22,11 @@ voting
 ### Architecture
 ![Architecture](assets/architecture.png)
 
-### Using IPFS to host
+### Using Interplanetary File system(IPFS) to host
+|                      | Web 2.0            | Web 3.0(dApps)                |
+| -------------------- |:------------------:| -----------------------------:|
+| Scalable Computation | AWS                | Hyperledger                   |
+| File Storage         | Amazon S3          | IPFS                          |
+| Monetization         | Ads, Selling Goods | Token Model                   |
+| Payments             | Credit Cards,Paypal| Etherium, Bitcoin, ERC20Tokens|
+![IPFS](assets/ipfs.jpeg)
