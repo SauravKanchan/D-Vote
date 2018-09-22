@@ -88,7 +88,6 @@
                   <option value="2">AAP</option><br />
                   <option value="3">NCP</option><br />
                 </select>
-                <input id="pkey" required class="form-control w3-margin" placeholder="Enter Private Key" />
                 <button class="kafe-btn kafe-btn-mint w3-margin full-width" type="submit">Vote</button>
               </form>
             </div>
@@ -157,6 +156,7 @@
     <script src="source/assets/js/debunk.js"></script>
     <script type="text/javascript">
         host = "http://192.168.0.109"
+        voter_id = 1
       $("#idForm").submit( function(e) {
 
         d = document.getElementById('psel').value;
@@ -167,11 +167,11 @@
         var t = {
           "$class": "org.party.Vote",
           "asset": "org.party.Result#1",
-          "voter": `org.party.Voter#${document.getElementById('pkey').value}`,
+          "voter": "org.party.Voter#"+voter_id,
           "newValue": parseInt(d)
         };
         $.ajax({
-          url: host+':3000/api/Voter/'+document.getElementById('pkey').value,
+          url: host+':3000/api/Voter/'+voter_id,
           dataType: 'json',
           type: 'get',
           contentType: 'application/json',
